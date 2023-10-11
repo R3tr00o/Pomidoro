@@ -3,6 +3,7 @@
   /* COLORS */
 
   --clr-dark: 197, 37%, 24%;
+  --clr-accent: 43, 74%, 66%;
   --clr-light: 173, 58%, 39%;
   --clr-white: 100, 100%, 100%;
 
@@ -119,8 +120,12 @@ select {
   background-color: hsl(var(--clr-dark));
 }
 
-.bg-accent {
+.bg-light {
   background-color: hsl(var(--clr-light));
+}
+
+.bg-accent {
+  background-color: hsl(var(--clr-accent));
 }
 
 .bg-white {
@@ -206,7 +211,9 @@ select {
 }
 
 .container {
+  padding-inline: 2em;
   margin-inline: auto;
+  max-width: 80rem;
 }
 
 /* COMPONENTS */
@@ -214,12 +221,26 @@ select {
 .primary-header {
   text-align: center;
   margin-block: 1rem;
+  font-weight: 700;
 }
 
-.primary-nav {
+.mode-panel {
   height: fit-content;
-  padding: 1rem 1.5rem;
+  padding: 0.4rem;
   margin-inline: auto;
   align-items: center;
   justify-content: center;
+  border-radius: 9000px;
+  --gap: 0.75rem;
+}
+
+.btn-mode {
+  border: 0;
+  border-radius: 9000px;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+.btn-mode:focus {
+  border: 1px solid white;
 }
