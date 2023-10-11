@@ -3,7 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <script defer src="index.js"></script>
     <title>Pomidoro</title>
   </head>
-  <body></body>
+  <body class="flex flex-column">
+    <h1 class="primary-header fs-700">pomidoro</h1>
+
+    <nav class="primary-nav bg-dark flex">
+      <button class="">pomodoro</button>
+      <button class="">short break</button>
+      <button class="">long break</button>
+    </nav>
+    <main>
+      <div>
+        <p><span>25</span>:<span>00</span></p>
+        <button>Start</button>
+      </div>
+      <button><ion-icon name="settings-outline"></ion-icon></button>
+    </main>
+  </body>
 </html>
