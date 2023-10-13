@@ -2,10 +2,10 @@
 :root {
   /* COLORS */
 
-  --clr-dark: 197, 37%, 24%;
-  --clr-accent: 43, 74%, 66%;
-  --clr-light: 173, 58%, 39%;
-  --clr-white: 100, 100%, 100%;
+  --clr-dark: 197 37% 24%;
+  --clr-accent: 43 74% 66%;
+  --clr-light: 173 58% 39%;
+  --clr-white: 100 100% 100%;
 
   /* FONT-SIZES */
 
@@ -324,4 +324,57 @@ select {
 
 .icon-settings {
   font-size: 2rem;
+}
+
+.header-settings {
+  justify-content: space-between;
+  border-bottom: 1px solid hsl(var(--clr-dark) / 0.3);
+}
+
+.header-settings button {
+  border: 0;
+}
+
+.btn-settings--icon {
+  font-size: var(--fs-600);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+
+.input-box {
+  gap: 0.5rem;
+}
+
+.input-box input {
+  max-width: 40%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.modal-settings {
+  padding: 1.5rem;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+form {
+  position: relative;
+}
+
+.btn-apply {
+  border: 0;
+  width: 40%;
+  padding-block: 0.5rem;
+  justify-self: center;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border-radius: 9000px;
+  cursor: pointer;
 }

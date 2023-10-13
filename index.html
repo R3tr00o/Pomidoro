@@ -49,10 +49,33 @@
       <button class="btn-settings">
         <ion-icon class="icon-settings" name="settings-outline"></ion-icon>
       </button>
-      <div class="modal-settings bg-white">
-        <div class="flex">
-          <h2 class="text-dark">Settings</h2>
-          <ion-icon class="text-dark" name="close-outline"></ion-icon>
+
+      <div class="modal-settings bg-white" hidden>
+        <div class="flex flex-column">
+          <header class="header-settings flex">
+            <h2 class="text-dark">Settings</h2>
+            <button class="bg-white">
+              <ion-icon
+                class="btn-settings--icon text-dark"
+                name="close-outline"
+              ></ion-icon>
+            </button>
+          </header>
+          <form>
+            <div class="input-box flex flex-column">
+              <label class="text-dark" for="pomidoro-set">Pomidoro</label>
+              <input id="pomidoro-set" type="number" placeholder="25" />
+            </div>
+            <div class="input-box flex flex-column">
+              <label class="text-dark" for="short-break-set">Short break</label>
+              <input id="short-break-set" type="number" placeholder="5" />
+            </div>
+            <div class="input-box flex flex-column">
+              <label class="text-dark" for="long-break-set">Long break</label>
+              <input id="long-break-set" type="number" placeholder="15" />
+            </div>
+          </form>
+          <button class="btn-apply bg-accent text-dark">Apply</button>
         </div>
       </div>
     </main>
