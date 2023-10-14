@@ -13,7 +13,20 @@ function changeMode(e) {
     .setAttribute("aria-selected", false);
 
   targetMode.setAttribute("aria-selected", true);
+
+  // set time from setting to display from current mode
+  if (targetMode.textContent.includes("pomodoro")) {
+  } else if (targetMode.textContent.includes("short break")) {
+  } else {
+  }
 }
+
+/* 
+<p class="fs-800 letter-spacing-2" id="display-time">
+  <span id="display-minute">25</span>:<span id="display-second">00</span>
+</p>
+*/
+const pomodoroSetting = document.querySelector("#pomidoro-set").placeholder;
 
 // Settings open system
 const modalOpen = document.querySelector(".btn-settings");
@@ -31,3 +44,11 @@ modalOpen.addEventListener("click", (e) => {
 btnCloseModal.addEventListener("click", () => {
   modalWindow.setAttribute("hidden", "");
 });
+
+// Settings applying
+const pomidoroTime = document.querySelector("#pomidoro-set");
+const shortTime = document.querySelector("#short-break-set");
+const longTime = document.querySelector("#long-break-set");
+const btnApply = document.querySelector(".btn-apply");
+
+btnApply.addEventListener("click", () => {});
