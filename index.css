@@ -329,6 +329,8 @@ select {
 .header-settings {
   justify-content: space-between;
   border-bottom: 1px solid hsl(var(--clr-dark) / 0.3);
+  padding-block: 0.7rem;
+  padding-inline: 1.2rem;
 }
 
 .header-settings button {
@@ -354,16 +356,19 @@ select {
 }
 
 .modal-settings {
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
   border-radius: 8px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 30vw;
 }
 
 form {
   position: relative;
+  padding-inline: 1.2rem;
+  padding-bottom: 2rem;
 }
 
 .btn-apply {

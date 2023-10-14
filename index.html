@@ -38,7 +38,11 @@
     <main class="container flex flex-column">
       <div class="timer-box">
         <div class="circle bg-dark flex flex-column">
-          <p class="fs-800 letter-spacing-2"><span>25</span>:<span>00</span></p>
+          <p class="fs-800 letter-spacing-2">
+            <span class="display-minute">25</span>:<span class="display-second"
+              >00</span
+            >
+          </p>
           <button
             class="btn-start text-white bg-dark letter-spacing-2 fs-400 uppercase"
           >
@@ -54,7 +58,7 @@
         <div class="flex flex-column">
           <header class="header-settings flex">
             <h2 class="text-dark">Settings</h2>
-            <button class="bg-white">
+            <button class="bg-white btn-close">
               <ion-icon
                 class="btn-settings--icon text-dark"
                 name="close-outline"
@@ -64,15 +68,33 @@
           <form>
             <div class="input-box flex flex-column">
               <label class="text-dark" for="pomidoro-set">Pomidoro</label>
-              <input id="pomidoro-set" type="number" placeholder="25" />
+              <input
+                id="pomidoro-set"
+                type="number"
+                placeholder="25"
+                max="35"
+                min="15"
+              />
             </div>
             <div class="input-box flex flex-column">
               <label class="text-dark" for="short-break-set">Short break</label>
-              <input id="short-break-set" type="number" placeholder="5" />
+              <input
+                id="short-break-set"
+                type="number"
+                placeholder="5"
+                max="15"
+                min="2"
+              />
             </div>
             <div class="input-box flex flex-column">
               <label class="text-dark" for="long-break-set">Long break</label>
-              <input id="long-break-set" type="number" placeholder="15" />
+              <input
+                id="long-break-set"
+                type="number"
+                placeholder="15"
+                max="30"
+                min="5"
+              />
             </div>
           </form>
           <button class="btn-apply bg-accent text-dark">Apply</button>

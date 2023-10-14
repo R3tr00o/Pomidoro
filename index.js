@@ -14,3 +14,20 @@ function changeMode(e) {
 
   targetMode.setAttribute("aria-selected", true);
 }
+
+// Settings open system
+const modalOpen = document.querySelector(".btn-settings");
+const modalWindow = document.querySelector(".modal-settings");
+const btnCloseModal = document.querySelector(".btn-close");
+
+modalOpen.addEventListener("click", (e) => {
+  if (modalWindow.hasAttribute("hidden")) {
+    modalWindow.removeAttribute("hidden");
+  } else {
+    modalWindow.setAttribute("hidden", "");
+  }
+});
+
+btnCloseModal.addEventListener("click", () => {
+  modalWindow.setAttribute("hidden", "");
+});
