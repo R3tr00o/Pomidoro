@@ -46,9 +46,57 @@ btnCloseModal.addEventListener("click", () => {
 });
 
 // Settings applying
-const pomidoroTime = document.querySelector("#pomidoro-set");
-const shortTime = document.querySelector("#short-break-set");
-const longTime = document.querySelector("#long-break-set");
 const btnApply = document.querySelector(".btn-apply");
 
-btnApply.addEventListener("click", () => {});
+btnApply.addEventListener("click", customTimeSet);
+
+function customTimeSet() {
+  let pomidoroTime = document.querySelector("#pomidoro-set");
+  let shortTime = document.querySelector("#short-break-set");
+  let longTime = document.querySelector("#long-break-set");
+
+  pomidoroTime.value = isCustomTime(pomidoroTime);
+  shortTime.value = isCustomTime(shortTime);
+  longTime.value = isCustomTime(longTime);
+
+  // Check if time values are proper
+  isProperValue(pomidoroTime, shortTime, longTime);
+
+  console.log(pomidoroTime.value);
+  console.log(shortTime.value);
+  console.log(longTime.value);
+}
+
+const isCustomTime = function (time) {
+  const timeNum = Number(time.value);
+  const timePlcHld = Number(time.placeholder);
+
+  if (timeNum !== 0) {
+    if (timeNum !== timePlcHld) {
+      // return user defined value
+      return timeNum;
+    } else {
+      // return basic value
+      return timePlcHld;
+    }
+  } else {
+    return timePlcHld;
+  }
+};
+
+function isProperValue(timePM, timeSB, timeLB) {
+  const times = [timePM, timeSB, timeLB];
+  let isError = 0;
+
+  times.forEach((time) => {
+    let timeNumber = Number(time.value);
+
+    if (timeNumber >= time.max || timeNumber <= time.min) {
+      (isError = 1), (timeNumber = time.placeholder);
+    }
+  });
+
+  if (isError) {
+    alert("You enter wrong value, please use on from range");
+  }
+}

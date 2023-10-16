@@ -241,6 +241,11 @@ select {
   padding: 0.5rem 0.8rem;
   cursor: pointer;
   background-color: hsl(var(--clr-dark));
+  transition: background-color 250ms ease-in;
+}
+
+.btn-mode:hover {
+  background-color: hsl(var(--clr-accent) / 0.3);
 }
 
 .btn-mode:focus {
@@ -353,6 +358,7 @@ select {
   border-radius: 8px;
   border: 1px solid #ddd;
   margin-bottom: 1.5rem;
+  padding-inline: 0.5rem;
 }
 
 .modal-settings {
