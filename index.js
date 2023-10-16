@@ -26,6 +26,7 @@ function changeMode(e) {
   <span id="display-minute">25</span>:<span id="display-second">00</span>
 </p>
 */
+
 const pomodoroSetting = document.querySelector("#pomidoro-set").placeholder;
 
 // Settings open system
@@ -62,9 +63,11 @@ function customTimeSet() {
   // Check if time values are proper
   isProperValue(pomidoroTime, shortTime, longTime);
 
-  console.log(pomidoroTime.value);
-  console.log(shortTime.value);
-  console.log(longTime.value);
+  const pomidoro = Number(pomidoroTime.value);
+  const shortBreak = Number(shortTime.value);
+  const longBreak = Number(longTime.value);
+
+  return [pomidoro, shortBreak, longBreak];
 }
 
 const isCustomTime = function (time) {
@@ -92,7 +95,8 @@ function isProperValue(timePM, timeSB, timeLB) {
     let timeNumber = Number(time.value);
 
     if (timeNumber >= time.max || timeNumber <= time.min) {
-      (isError = 1), (timeNumber = time.placeholder);
+      time.value = "";
+      isError = 1;
     }
   });
 
