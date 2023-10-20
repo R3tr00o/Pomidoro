@@ -22,6 +22,7 @@ function changeMode(e) {
 
   // set time from setting to display from current mode
   if (targetMode.textContent.includes("pomodoro")) {
+    displayTime.textContent;
   } else if (targetMode.textContent.includes("short break")) {
   } else {
   }
@@ -81,7 +82,7 @@ const isCustomTime = function (time) {
   const timePlcHld = Number(time.placeholder);
 
   if (timeNum > -1) {
-    if (timeNum !== timePlcHld) {
+    if (timeNum !== timePlcHld && timeNum !== 0) {
       // return user defined value
       return timeNum;
     } else {
