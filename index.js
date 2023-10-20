@@ -1,6 +1,12 @@
 "use strict";
 
 const btnMode = document.querySelectorAll(".btn-mode");
+const displayTime = document.querySelector("#display-time");
+
+// Time values
+let pomidoro = 25;
+let shortBreak = 5;
+let longBreak = 15;
 
 btnMode.forEach((e) => e.addEventListener("click", changeMode));
 
@@ -34,7 +40,7 @@ const modalOpen = document.querySelector(".btn-settings");
 const modalWindow = document.querySelector(".modal-settings");
 const btnCloseModal = document.querySelector(".btn-close");
 
-modalOpen.addEventListener("click", (e) => {
+modalOpen.addEventListener("click", () => {
   if (modalWindow.hasAttribute("hidden")) {
     modalWindow.removeAttribute("hidden");
   } else {
@@ -63,9 +69,9 @@ function customTimeSet() {
   // Check if time values are proper
   isProperValue(pomidoroTime, shortTime, longTime);
 
-  const pomidoro = Number(pomidoroTime.value);
-  const shortBreak = Number(shortTime.value);
-  const longBreak = Number(longTime.value);
+  pomidoro = Number(pomidoroTime.value);
+  shortBreak = Number(shortTime.value);
+  longBreak = Number(longTime.value);
 
   return [pomidoro, shortBreak, longBreak];
 }
@@ -74,7 +80,7 @@ const isCustomTime = function (time) {
   const timeNum = Number(time.value);
   const timePlcHld = Number(time.placeholder);
 
-  if (timeNum !== 0) {
+  if (timeNum > -1) {
     if (timeNum !== timePlcHld) {
       // return user defined value
       return timeNum;
@@ -94,7 +100,7 @@ function isProperValue(timePM, timeSB, timeLB) {
   times.forEach((time) => {
     let timeNumber = Number(time.value);
 
-    if (timeNumber >= time.max || timeNumber <= time.min) {
+    if (timeNumber > time.max || timeNumber < time.min) {
       time.value = "";
       isError = 1;
     }
