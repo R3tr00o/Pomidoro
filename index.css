@@ -304,6 +304,10 @@ select {
   border-radius: 50%;
 }
 
+#display-time {
+  /* width: 18rem; */
+}
+
 .btn-start {
   border: 0;
   cursor: pointer;
@@ -325,6 +329,15 @@ select {
   border: 0;
   background-color: hsl(var(--clr-light));
   cursor: pointer;
+  transition: color 350ms ease-out;
+}
+
+.btn-settings:hover {
+  color: hsl(var(--clr-accent));
+}
+
+.btn-settings:active {
+  color: hsl(var(--clr-white));
 }
 
 .icon-settings {
@@ -388,4 +401,14 @@ form {
   transform: translate(-50%, 50%);
   border-radius: 9000px;
   cursor: pointer;
+  transition: color 250ms;
+}
+
+.btn-apply:hover {
+  color: hsl(var(--clr-white) / 0.85);
+}
+
+.btn-apply:active {
+  color: hsl(var(--clr-white));
+  box-shadow: inset 0 0 5px 5px rgba(0, 0, 0, 0.05);
 }

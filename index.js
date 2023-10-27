@@ -2,7 +2,8 @@
 
 const btnMode = document.querySelectorAll(".btn-mode");
 const displayTime = document.querySelector("#display-time");
-
+let activeBtn = document.querySelector("[aria-selected='true']");
+console.log(activeBtn);
 // Time values
 let pomidoro = 25;
 let shortBreak = 5;
@@ -19,15 +20,25 @@ function changeMode(e) {
     .setAttribute("aria-selected", false);
 
   targetMode.setAttribute("aria-selected", true);
-
+  activeBtn = targetMode;
+  console.log(activeBtn);
   // set time from setting to display from current mode
   if (targetMode.textContent.includes("pomodoro")) {
-    displayTime.textContent;
+    displayTimer(pomidoro);
   } else if (targetMode.textContent.includes("short break")) {
+    displayTimer(shortBreak);
   } else {
+    displayTimer(longBreak);
   }
 }
 
+function displayTimer(time) {
+  if (time < 10) {
+    displayTime.textContent = `0${time}:00`;
+  } else {
+    displayTime.textContent = `${time}:00`;
+  }
+}
 /* 
 <p class="fs-800 letter-spacing-2" id="display-time">
   <span id="display-minute">25</span>:<span id="display-second">00</span>
@@ -74,7 +85,13 @@ function customTimeSet() {
   shortBreak = Number(shortTime.value);
   longBreak = Number(longTime.value);
 
-  return [pomidoro, shortBreak, longBreak];
+  if (activeBtn.textContent.includes("pomodoro")) {
+    displayTimer(pomidoro);
+  } else if (activeBtn.textContent.includes("short break")) {
+    displayTimer(shortBreak);
+  } else {
+    displayTimer(longBreak);
+  }
 }
 
 const isCustomTime = function (time) {
