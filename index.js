@@ -4,6 +4,7 @@ const btnMode = document.querySelectorAll(".btn-mode");
 const displayTime = document.querySelector("#display-time");
 let activeBtn = document.querySelector("[aria-selected='true']");
 console.log(activeBtn);
+
 // Time values
 let pomidoro = 25;
 let shortBreak = 5;
@@ -39,11 +40,6 @@ function displayTimer(time) {
     displayTime.textContent = `${time}:00`;
   }
 }
-/* 
-<p class="fs-800 letter-spacing-2" id="display-time">
-  <span id="display-minute">25</span>:<span id="display-second">00</span>
-</p>
-*/
 
 const pomodoroSetting = document.querySelector("#pomidoro-set").placeholder;
 
@@ -127,4 +123,38 @@ function isProperValue(timePM, timeSB, timeLB) {
   if (isError) {
     alert("You enter wrong value, please use on from range");
   }
+}
+
+const btnStart = document.querySelector(".btn-start");
+
+btnStart.addEventListener("click", selectTime);
+
+function selectTime() {
+  if (activeBtn.textContent === "Pomodoro") {
+    console.log("Works");
+    // } else if (time === "Short break") {
+    //   console.log("short");
+    // } else if (time === "Long break") {
+    //   console.log("long");
+    // }
+  }
+}
+
+function startTimer(duration) {
+  let timer = duration;
+  let minutes;
+  let seconds;
+  setInterval(function () {
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    displayTime.textContent = `${minutes}:${seconds}`;
+
+    if (--timer < 0) {
+      timer = duration;
+    }
+  }, 1000);
 }
