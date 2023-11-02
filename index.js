@@ -148,13 +148,14 @@ function selectTime() {
   }
 }
 
-function startTimer(duration) {
+function startTimer(time) {
+  let duration = time * 60;
   let timer = duration;
   let minutes;
   let seconds;
   intervalID = setInterval(function () {
-    minutes = parseInt(timer / 60, 10) * 1000;
-    seconds = parseInt(timer % 60, 10) * 1000;
+    minutes = parseInt(timer / 60, 10);
+    seconds = parseInt(timer % 60, 10);
 
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -164,11 +165,5 @@ function startTimer(duration) {
     if (--timer < 0) {
       timer = duration;
     }
-  }, 1000);
-}
-
-function isActive(button) {
-  if (button.classList.contains("active")) {
-  } else {
-  }
+  }, 300);
 }
