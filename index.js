@@ -124,20 +124,27 @@ function isProperValue(timePM, timeSB, timeLB) {
   }
 }
 
+let intervalID;
+
 const btnStart = document.querySelector(".btn-start");
 
 btnStart.addEventListener("click", selectTime);
 
 function selectTime() {
-  if (activeBtn.id == "pomidoro") {
-    console.log("Works");
-    startTimer(pomidoro);
-  } else if (activeBtn.id === "short-break") {
-    console.log("short");
-    startTimer(shortBreak);
-  } else if (activeBtn.id === "long-break") {
-    console.log("long");
-    startTimer(longBreak);
+  if (!btnStart.classList.contains("active")) {
+    btnStart.classList.add("active");
+    btnStart.textContent = "Pause";
+    if (activeBtn.id == "pomidoro") {
+      startTimer(pomidoro);
+    } else if (activeBtn.id === "short-break") {
+      startTimer(shortBreak);
+    } else if (activeBtn.id === "long-break") {
+      startTimer(longBreak);
+    }
+  } else {
+    clearInterval(intervalID);
+    btnStart.classList.remove("active");
+    btnStart.textContent = "Start";
   }
 }
 
@@ -145,9 +152,9 @@ function startTimer(duration) {
   let timer = duration;
   let minutes;
   let seconds;
-  setInterval(function () {
-    minutes = parseInt(timer / 60, 10);
-    seconds = parseInt(timer % 60, 10);
+  intervalID = setInterval(function () {
+    minutes = parseInt(timer / 60, 10) * 1000;
+    seconds = parseInt(timer % 60, 10) * 1000;
 
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -158,4 +165,10 @@ function startTimer(duration) {
       timer = duration;
     }
   }, 1000);
+}
+
+function isActive(button) {
+  if (button.classList.contains("active")) {
+  } else {
+  }
 }

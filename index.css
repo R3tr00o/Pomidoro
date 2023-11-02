@@ -304,10 +304,6 @@ select {
   border-radius: 50%;
 }
 
-#display-time {
-  /* width: 18rem; */
-}
-
 .btn-start {
   border: 0;
   cursor: pointer;
