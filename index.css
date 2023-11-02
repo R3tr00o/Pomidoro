@@ -276,14 +276,17 @@ select {
   margin-bottom: 5rem;
 }
 
-.timer-box::before {
+.progress-circle {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block;
-  background-color: hsl(var(--clr-accent));
+  background: conic-gradient(
+    hsl(var(--clr-accent)) 0deg,
+    hsl(var(--clr-dark)) 0deg
+  );
   width: 105%;
   aspect-ratio: 1;
   z-index: -1;

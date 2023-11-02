@@ -3,7 +3,6 @@
 const btnMode = document.querySelectorAll(".btn-mode");
 const displayTime = document.querySelector("#display-time");
 let activeBtn = document.querySelector("[aria-selected='true']");
-console.log(activeBtn);
 
 // Time values
 let pomidoro = 25;
@@ -124,12 +123,14 @@ function isProperValue(timePM, timeSB, timeLB) {
   }
 }
 
-let intervalID;
-
 const btnStart = document.querySelector(".btn-start");
 
+let progressCircle = document.querySelector(".progress-circle");
+let progressStart = 0;
+let progressEnd = 0;
 btnStart.addEventListener("click", selectTime);
 
+let intervalID;
 function selectTime() {
   if (!btnStart.classList.contains("active")) {
     btnStart.classList.add("active");
@@ -161,9 +162,13 @@ function startTimer(time) {
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
     displayTime.textContent = `${minutes}:${seconds}`;
+    let angel = 360 - (timer / duration) * 360;
+
+    progressCircle.style.background = `conic-gradient(hsl(var(--clr-accent)) ${angel}deg, hsl(var(--clr-dark)) 0deg)`;
 
     if (--timer < 0) {
       timer = duration;
+      clearInterval(intervalID);
     }
-  }, 300);
+  }, 1000);
 }
