@@ -22,7 +22,6 @@ function changeMode(e) {
 
   targetMode.setAttribute("aria-selected", true);
   activeBtn = targetMode;
-  console.log(activeBtn);
   // set time from setting to display from current mode
   if (targetMode.textContent.includes("pomodoro")) {
     displayTimer(pomidoro);
@@ -130,13 +129,15 @@ const btnStart = document.querySelector(".btn-start");
 btnStart.addEventListener("click", selectTime);
 
 function selectTime() {
-  if (activeBtn.textContent === "Pomodoro") {
+  if (activeBtn.id == "pomidoro") {
     console.log("Works");
-    // } else if (time === "Short break") {
-    //   console.log("short");
-    // } else if (time === "Long break") {
-    //   console.log("long");
-    // }
+    startTimer(pomidoro);
+  } else if (activeBtn.id === "short-break") {
+    console.log("short");
+    startTimer(shortBreak);
+  } else if (activeBtn.id === "long-break") {
+    console.log("long");
+    startTimer(longBreak);
   }
 }
 
