@@ -1,7 +1,11 @@
 Simple Pomodoro Website, not finished yet.
 
 It is my first project build fully by myself with HTML,CSS and JS.
-It helped me understand functions, working with setInterval, and improved semantic HTML.
+It helped me understand basics of building websites and interacting with them.
+Acquired knowledge: 
+- Working with DOM
+- Async JS
+- Semantic HTML
 
 App contains bugs that I'm currently work on.
 
